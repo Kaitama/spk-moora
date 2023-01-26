@@ -7,5 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Alternatif extends Model
 {
-    use HasFactory;
+	use HasFactory;
+
+	// lepaskan proteksi mass assignment
+	protected $guarded = [];
 }

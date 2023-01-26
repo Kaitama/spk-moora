@@ -3,17 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Alternatif\Index as AlternatifIndex;
 use App\Http\Livewire\Alternatif\Create as AlternatifCreate;
+use App\Http\Livewire\Alternatif\Edit as AlternatifEdit;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 // BAGIAN ROUTE YANG TIDAK BUTUH AKSES LOGIN
 Route::get('/', function () {
 	// return view('welcome');
@@ -40,7 +31,8 @@ Route::middleware([
 	Route::get('/alternatif/create', AlternatifCreate::class)
 		->name('alternatif.create');
 	// route data alternatif edit
-
+	Route::get('/alternatif/{id}/edit', AlternatifEdit::class)
+		->name('alternatif.edit');
 
 	// route data kriteria
 
