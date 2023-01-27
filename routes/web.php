@@ -4,6 +4,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Alternatif\Index as AlternatifIndex;
 use App\Http\Livewire\Alternatif\Create as AlternatifCreate;
 use App\Http\Livewire\Alternatif\Edit as AlternatifEdit;
+use App\Http\Livewire\Kriteria\Index as KriteriaIndex;
+use App\Http\Livewire\Kriteria\Create as KriteriaCreate;
+use App\Http\Livewire\Kriteria\Edit as KriteriaEdit;
+use App\Http\Livewire\Penilaian\Index as PenilaianIndex;
+use App\Http\Livewire\Penilaian\Edit as PenilaianEdit;
 
 // BAGIAN ROUTE YANG TIDAK BUTUH AKSES LOGIN
 Route::get('/', function () {
@@ -25,15 +30,18 @@ Route::middleware([
 	})->name('dashboard');
 
 	// route data alternatif index
-	Route::get('/alternatif', AlternatifIndex::class)
-		->name('alternatif.index');
+	Route::get('/alternatif', AlternatifIndex::class)->name('alternatif.index');
 	// route data alternatif create
-	Route::get('/alternatif/create', AlternatifCreate::class)
-		->name('alternatif.create');
+	Route::get('/alternatif/create', AlternatifCreate::class)->name('alternatif.create');
 	// route data alternatif edit
-	Route::get('/alternatif/{id}/edit', AlternatifEdit::class)
-		->name('alternatif.edit');
+	Route::get('/alternatif/{id}/edit', AlternatifEdit::class)->name('alternatif.edit');
 
 	// route data kriteria
+	Route::get('/kriteria', KriteriaIndex::class)->name('kriteria.index');
+	Route::get('/kriteria/create', KriteriaCreate::class)->name('kriteria.create');
+	Route::get('/kriteria/{id}/edit', KriteriaEdit::class)->name('kriteria.edit');
 
+	// route penilaian
+	Route::get('/penilaian', PenilaianIndex::class)->name('penilaian.index');
+	Route::get('/penilaian/{altId}/edit', PenilaianEdit::class)->name('penilaian.edit');
 });

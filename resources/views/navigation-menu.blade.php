@@ -24,6 +24,20 @@
                         {{ __('Data Alternatif') }}
                     </x-jet-nav-link>
 
+										{{-- menu kriteria --}}
+										<x-jet-nav-link 
+										href="{{ route('kriteria.index') }}" 
+										:active="request()->routeIs('kriteria.*')">
+                        {{ __('Data Kriteria') }}
+                    </x-jet-nav-link>
+										
+										{{-- menu penilaian --}}
+										<x-jet-nav-link 
+										href="{{ route('penilaian.index') }}" 
+										:active="request()->routeIs('penilaian.*')">
+                        {{ __('Penilaian') }}
+                    </x-jet-nav-link>
+
                 </div>
             </div>
 

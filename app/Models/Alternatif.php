@@ -11,4 +11,10 @@ class Alternatif extends Model
 
 	// lepaskan proteksi mass assignment
 	protected $guarded = [];
+
+	// relasi ke tabel kriteria
+	public function kriteria()
+	{
+		return $this->belongsToMany(Kriteria::class)->withPivot('nilai');
+	}
 }
