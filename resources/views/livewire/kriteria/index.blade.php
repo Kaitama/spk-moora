@@ -51,6 +51,7 @@
 								</td>
 								<td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
 									<div class="flex items-center justify-end gap-4">
+										<x-button-link href="{{ route('subkriteria.create', $krit->id) }}"> + </x-button-link>
 										<a href="{{ route('kriteria.edit', $krit->id) }}" class="uppercase font-medium text-xs text-gray-700">Ubah</a>
 										<x-jet-button wire:click="delete({{ $krit->id }})">Hapus</x-jet-button>
 									</div>

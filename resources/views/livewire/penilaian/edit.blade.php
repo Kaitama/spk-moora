@@ -13,7 +13,11 @@
 			@foreach ($kriterias as $krit)
 			<div class="col-span-6 sm:col-span-4">
 				<x-jet-label for="kode" value="{{ $krit->kode }} - {{ $krit->name }}" />
-				<x-jet-input id="kode" wire:model="nilai.{{ $krit->id }}" type="text" class="mt-1 block w-full" autofocus />
+				<x-select id="kode" wire:model="nilai.{{ $krit->id }}" type="text" class="mt-1 block w-full">
+					@foreach ($krit->subkriteria as $sub)
+							<option value="{{ $sub->bobot }}">{{ $sub->name }}</option>
+					@endforeach
+				</x-select>
 				<x-jet-input-error for="kode" class="mt-2" />
 			</div>
 			@endforeach

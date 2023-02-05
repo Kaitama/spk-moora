@@ -5,15 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Kriteria extends Model
+class SubKriteria extends Model
 {
 	use HasFactory;
 
 	protected $guarded = [];
 
-	// relasi ke banyak sub kriteria
-	public function subkriteria()
+	// relasi ke kriteria (parent model)
+	public function kriteria()
 	{
-		return $this->hasMany(SubKriteria::class);
+		return $this->belongsTo(Kriteria::class);
 	}
 }
