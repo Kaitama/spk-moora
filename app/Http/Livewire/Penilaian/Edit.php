@@ -19,7 +19,7 @@ class Edit extends Component
 	public function mount($altId)
 	{
 		$this->alternatif = Alternatif::find($altId);
-		$this->kriterias = Kriteria::orderBy('name')->get();
+		$this->kriterias = Kriteria::orderBy('kode')->get();
 		foreach ($this->kriterias as $key => $value) {
 			$this->nilai[$value->id] = 0;
 		}

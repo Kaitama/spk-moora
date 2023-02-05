@@ -25,7 +25,7 @@
 							</tr>
 						</thead>
 						<tbody>
-							@foreach ($alternatifs as $index => $alt)
+							@forelse ($alternatifs as $index => $alt)
 									
 							<tr>
 								<td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
@@ -45,7 +45,15 @@
 								</td>
 							</tr>
 
-							@endforeach
+							@empty
+
+							<tr>
+								<td class="px-5 py-5 border-b border-gray-200 bg-white text-sm" colspan="6">
+									Data alternatif masih kosong.
+								</td>
+							</tr>
+
+							@endforelse
 						</tbody>
 					</table>
 				</div>

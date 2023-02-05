@@ -10,6 +10,8 @@ use App\Http\Livewire\Kriteria\Edit as KriteriaEdit;
 use App\Http\Livewire\Penilaian\Index as PenilaianIndex;
 use App\Http\Livewire\Penilaian\Edit as PenilaianEdit;
 use App\Http\Livewire\Subkriteria\Create as SubkriteriaCreate;
+use App\Http\Livewire\Proses\Index as ProsesIndex;
+
 
 // BAGIAN ROUTE YANG TIDAK BUTUH AKSES LOGIN
 Route::get('/', function () {
@@ -48,4 +50,5 @@ Route::middleware([
 	// route penilaian
 	Route::get('/penilaian', PenilaianIndex::class)->name('penilaian.index');
 	Route::get('/penilaian/{altId}/edit', PenilaianEdit::class)->name('penilaian.edit');
+	Route::get('/penilaian/proses', ProsesIndex::class)->name('penilaian.proses');
 });

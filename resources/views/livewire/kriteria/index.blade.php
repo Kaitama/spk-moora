@@ -27,11 +27,14 @@
 								<th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-900 text-white text-center text-xs font-semibold text-gray-600 uppercase tracking-wider">
 									Jenis Kriteria
 								</th>
+								<th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-900 text-white text-center text-xs font-semibold text-gray-600 uppercase tracking-wider">
+									Sub Kriteria
+								</th>
 								<th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-900 text-white text-center text-xs font-semibold text-gray-600 uppercase tracking-wider"></th>
 							</tr>
 						</thead>
 						<tbody>
-							@foreach ($kriterias as $index => $krit)
+							@forelse ($kriterias as $index => $krit)
 									
 							<tr>
 								<td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
@@ -50,15 +53,25 @@
 									{{ $krit->type ? 'Benefit' : 'Cost' }}
 								</td>
 								<td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+									<x-button-link href="{{ route('subkriteria.create', $krit->id) }}">Tambah</x-button-link>
+								</td>
+								<td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
 									<div class="flex items-center justify-end gap-4">
-										<x-button-link href="{{ route('subkriteria.create', $krit->id) }}"> + </x-button-link>
 										<a href="{{ route('kriteria.edit', $krit->id) }}" class="uppercase font-medium text-xs text-gray-700">Ubah</a>
 										<x-jet-button wire:click="delete({{ $krit->id }})">Hapus</x-jet-button>
 									</div>
 								</td>
 							</tr>
 
-							@endforeach
+							@empty
+
+							<tr>
+								<td class="px-5 py-5 border-b border-gray-200 bg-white text-sm" colspan="7">
+									Data kriteria masih kosong.
+								</td>
+							</tr>
+
+							@endforelse
 						</tbody>
 					</table>
 				</div>

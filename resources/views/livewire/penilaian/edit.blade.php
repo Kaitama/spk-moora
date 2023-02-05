@@ -14,6 +14,7 @@
 			<div class="col-span-6 sm:col-span-4">
 				<x-jet-label for="kode" value="{{ $krit->kode }} - {{ $krit->name }}" />
 				<x-select id="kode" wire:model="nilai.{{ $krit->id }}" type="text" class="mt-1 block w-full">
+					<option value="0" disabled selected>Pilih salah satu</option>
 					@foreach ($krit->subkriteria as $sub)
 							<option value="{{ $sub->bobot }}">{{ $sub->name }}</option>
 					@endforeach

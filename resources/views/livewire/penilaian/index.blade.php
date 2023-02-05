@@ -5,6 +5,7 @@
 		<div class="py-8">
 			<div class="flex items-center justify-between">
 				<h2 class="text-2xl font-semibold leading-tight">Data Penilaian</h2>
+				<x-button-link href="{{ route('penilaian.proses') }}">Proses Perangkingan</x-button-link>
 			</div>
 			<div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
 				<div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
@@ -29,7 +30,7 @@
 							</tr>
 						</thead>
 						<tbody>
-							@foreach ($alternatifs as $index => $alt)
+							@forelse ($alternatifs as $index => $alt)
 							
 							<tr>
 								<td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
@@ -61,8 +62,14 @@
 									</div>
 								</td>
 							</tr>
+
+							@empty
+
+							<tr>
+								<td class="px-5 py-5 border-b border-gray-200 bg-white text-sm" colspan="{{ $kriterias->count() + 4 }}">Belum ada data alternatif untuk dinilai.</td>
+							</tr>
 							
-							@endforeach
+							@endforelse
 						</tbody>
 					</table>
 				</div>
